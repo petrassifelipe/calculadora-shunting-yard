@@ -1,6 +1,12 @@
 # 🧮 Calculadora
 
-Uma calculadora web desenvolvida com HTML e JavaScript puro, sem dependências externas. O diferencial do projeto está na implementação manual do algoritmo **Shunting Yard** para avaliação de expressões matemáticas com respeito à precedência de operadores — sem uso de `eval()`.
+Uma calculadora web desenvolvida com HTML, CSS e JavaScript puro, sem dependências externas. O diferencial do projeto está na implementação manual do algoritmo **Shunting Yard** para avaliação de expressões matemáticas com respeito à precedência de operadores — sem uso de `eval()`.
+
+---
+
+    ## 📸 Preview
+    
+    ![Calculadora](img/img-calculadora.png)
 
 ---
 
@@ -8,7 +14,10 @@ Uma calculadora web desenvolvida com HTML e JavaScript puro, sem dependências e
 
 ```
 calculadora/
+├── img/
+│   └── img-calculadora.png
 ├── index.html
+├── styles.css
 ├── app.js
 └── README.md
 ```
@@ -21,6 +30,9 @@ calculadora/
 - Respeito à precedência de operadores (`x` e `÷` antes de `+` e `-`)
 - Entrada via botões na interface
 - Limpeza do campo com o botão **AC**
+- Operações com números decimais usando vírgula
+- Validação para impedir dois operadores consecutivos
+- Valor inicial `0` substituído automaticamente ao digitar
 
 ---
 
@@ -162,8 +174,9 @@ Resultado: `14` ✅
 
 ## 🚧 Em desenvolvimento
 
-- [ ] Estilização com CSS
-- [ ] Tratamento de erros (expressões inválidas, divisão por zero, campos vazios)
+- [ ] Cálculo Percentual
+- [ ] Tratamento de divisão por zero
+- [ ] Limpeza do último caractere com o botão **C**
 
 ---
 
@@ -181,4 +194,5 @@ Nenhuma instalação necessária. Basta abrir o arquivo `index.html` no navegado
 ## 🛠️ Tecnologias
 
 - HTML5
+- CSS3
 - JavaScript (ES6+) — vanilla, sem bibliotecas externas
