@@ -6,7 +6,7 @@ Uma calculadora web desenvolvida com HTML, CSS e JavaScript puro, sem dependênc
 
     ## 📸 Preview
     
-    ![Calculadora](img/img-calculadora.png)
+    ![Calculadora](/img/img-calculadora.png)
 
 ---
 
