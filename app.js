@@ -1,7 +1,12 @@
 let campo = document.getElementById('campo')
+campo.value = 0
 
 function display(informacaoDisplay) {
-    campo.value += informacaoDisplay
+    if (campo.value === '0' && /\d/.test(informacaoDisplay)) {
+        campo.value = informacaoDisplay
+    } else {
+        campo.value += informacaoDisplay
+    }
 }
 
 function calculadora() {
@@ -12,7 +17,7 @@ function calculadora() {
     for (let i = 0; i < expressao.length; i++) {
         let caractere = expressao[i]
 
-        if (/\d/.test(caractere)) {
+        if (/\d/.test(caractere) || caractere === ',' || caractere === '.') {
             numero += caractere
         } else if (caractere.match(/[+÷x\-\/]/g)) {
             tokens.push(numero)
@@ -57,26 +62,41 @@ function calculadora() {
         if (/\d/.test(token)) {
             pilha.push(token)
         } else if (token.match(/[+÷x\-\/]/g)) {
-            const ultimoDaPilha = Number(pilha.pop())
-            const anteriorDaPilha = Number(pilha.pop())
+            const ultimoDaPilha = Number(pilha.pop().replace(',', '.'))
+            const anteriorDaPilha = Number(pilha.pop().replace(',', '.'))
 
             if (token === '+') {
-                pilha.push(anteriorDaPilha + ultimoDaPilha)
+                pilha.push(String(anteriorDaPilha + ultimoDaPilha))
             } else if (token === '-') {
-                pilha.push(anteriorDaPilha - ultimoDaPilha)
+                pilha.push(String(anteriorDaPilha - ultimoDaPilha))
             } else if (token === 'x') {
-                pilha.push(anteriorDaPilha * ultimoDaPilha)
+                pilha.push(String(anteriorDaPilha * ultimoDaPilha))
             } else if (token === '÷') {
-                pilha.push(anteriorDaPilha / ultimoDaPilha)
+                pilha.push(String(anteriorDaPilha / ultimoDaPilha))
             }
         }
     }
-    campo.value = pilha
+    campo.value = String(pilha).replace('.', ',')
+}
+
+function virgula() {
+    let numero = campo.value.split(/[+÷x\-\/]/g)
+    numero = numero[numero.length - 1]
+
+    if (!numero.includes(',')) {
+        display(',')
+    }
 }
 
 function limpar() {
-    campo.value = ''
-    operador = ''
-    primeiroNumero = 0
-    segundoNumero = 0
+    campo.value = 0
+}
+
+function operadores(operador) {
+    let digito = campo.value
+    digito = digito[digito.length - 1]
+
+    if (campo.value === '' || !digito.match(/[+÷x\-\/]/g)) {
+        display(operador)
+    }
 }

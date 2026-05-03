@@ -1,0 +1,69 @@
+:root {
+    --cor-de-fundo: #192E40;
+    --cor-primaria: #F2E4BB;
+    --cor-secundaria: #F28157;
+    --cor-terciaria: #F2B47E;
+
+    --cor-fonte: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 24px;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_titulo {
+    
+}
+
+.container_input {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fonte);
+    font-size: 1.25rem;
+    width: 100%;
+    height: 2.5rem;
+    margin: 8px 0 8px 0;
+    box-sizing: border-box;
+    padding: 0.2rem;
+}
+
+.container_botao {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button{
+    background-color: var(--cor-primaria);
+    color: var(--cor-fonte);
+    height: 3.1rem;
+    font-size: 1.5rem;
+    margin: 1.5px;
+}
+
+.container_botao_igual {
+    grid-column: span 2;
+    background-color: var(--cor-secundaria);
+}
+
+.container_botao_operador {
+    background-color: var(--cor-secundaria);
+}
+
+.container_botao_funcao {
+    background-color: var(--cor-terciaria);
+}
